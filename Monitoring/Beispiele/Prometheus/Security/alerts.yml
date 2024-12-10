@@ -1,0 +1,12 @@
+groups:
+  - name: demo_alerts
+    interval: 15s # Evaluierungsintervall für die Regeln
+    rules:
+      - alert: HighRequestCount
+        expr: http_requests_total >= 10
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Hohe Anzahl von HTTP-Requests"
+          description: "Mehr als 10 HTTP-Requests wurden empfangen."
